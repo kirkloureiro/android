@@ -1,8 +1,9 @@
 *.class
-bin
-target
+bin/
+target/
 
 # Package Files #
 *.jar
 *.war
 *.ear
+*.apk
