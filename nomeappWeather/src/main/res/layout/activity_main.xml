@@ -1,0 +1,147 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/parent_activity_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context=".MainActivity" >
+
+    <EditText
+        android:id="@+id/campo_digite_cidade"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_toLeftOf="@+id/botaoPesquisa"
+        android:layout_toStartOf="@+id/botaoPesquisa"
+        android:hint="@string/campo_digite_cidade"
+        android:inputType="text" />
+
+    <Button
+        android:id="@+id/botaoPesquisa"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/campo_digite_cidade"
+        android:layout_alignBottom="@+id/campo_digite_cidade"
+        android:layout_alignEnd="@+id/listaPrevisoes"
+        android:layout_alignRight="@+id/listaPrevisoes"
+        android:onClick="buscarPrevisaoTempo"
+        android:text="@string/button_text" />
+
+    <TextView
+        android:id="@+id/cityText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/campo_digite_cidade" />
+
+    <ImageView
+        android:id="@+id/condIcon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/pressLab"
+        android:layout_alignLeft="@+id/cityText"
+        android:layout_alignRight="@+id/pressLab"
+        android:layout_alignStart="@+id/cityText"
+        android:layout_below="@id/cityText"
+        android:contentDescription="@string/app_name" />
+
+    <TextView
+        android:id="@+id/condDescr"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/condIcon" />
+
+    <TextView
+        android:id="@+id/temp"
+        style="@style/tempStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/campo_digite_cidade"
+        android:layout_alignRight="@+id/campo_digite_cidade"
+        android:layout_alignTop="@+id/condIcon"
+        android:layout_below="@id/cityText"
+        android:layout_toEndOf="@id/condIcon"
+        android:layout_toRightOf="@+id/condIcon" />
+
+    <TextView
+        android:id="@+id/pressLab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/condDescr"
+        android:layout_marginTop="15dp"
+        android:text="@string/pressure" />
+
+    <TextView
+        android:id="@+id/press"
+        style="@style/valData"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/pressLab"
+        android:layout_alignTop="@+id/pressLab"
+        android:layout_toEndOf="@+id/pressLab"
+        android:layout_toLeftOf="@+id/botaoPesquisa"
+        android:layout_toRightOf="@+id/pressLab"
+        android:layout_toStartOf="@+id/botaoPesquisa" />
+
+    <TextView
+        android:id="@+id/humLab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/pressLab"
+        android:text="@string/humidity" />
+
+    <TextView
+        android:id="@+id/hum"
+        style="@style/valData"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/humLab"
+        android:layout_alignEnd="@+id/press"
+        android:layout_alignRight="@+id/press"
+        android:layout_below="@+id/press"
+        android:layout_toEndOf="@+id/humLab"
+        android:layout_toRightOf="@+id/humLab" />
+
+    <TextView
+        android:id="@+id/windLab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/humLab"
+        android:text="@string/wind" />
+
+    <TextView
+        android:id="@+id/windSpeed"
+        style="@style/valData"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/windLab"
+        android:layout_alignLeft="@+id/hum"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignStart="@+id/hum"
+        android:layout_alignTop="@+id/windLab" />
+
+    <TextView
+        android:id="@+id/windDeg"
+        style="@style/valData"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/windSpeed"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignTop="@+id/windSpeed" />
+
+    <ListView
+        android:id="@+id/listaPrevisoes"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/windLab"
+        android:layout_alignStart="@+id/windDeg"
+        android:layout_below="@+id/windLab"
+        android:layout_toEndOf="@id/windDeg"
+        android:layout_toRightOf="@id/windDeg"
+        android:divider="#FFECECEC"
+        android:dividerHeight="2sp" />
+
+</RelativeLayout>
